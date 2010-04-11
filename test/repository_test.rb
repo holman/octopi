@@ -84,10 +84,16 @@ class RepositoryTest < Test::Unit::TestCase
       assert_equal 21, issues.size
     end
     
+    should "be able to find all closed issues" do
+      issues = @repository.issues('closed')
+      assert_not_nil issues
+      assert_equal 9, issues.size
+    end
+    
     should "be able to find all issues" do
       issues = @repository.all_issues
       assert_not_nil issues
-      assert_equal 42, issues.size
+      assert_equal 30, issues.size
     end
     
     should "be able to find an issue" do
