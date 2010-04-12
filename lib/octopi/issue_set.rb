@@ -4,9 +4,11 @@ class Octopi::IssueSet < Array
   attr_accessor :user, :repository
   
   def initialize(array)
-    self.user = array.first.user
-    self.repository = array.first.repository
-    super(array)
+    unless array.empty?
+      self.user = array.first.user
+      self.repository = array.first.repository
+      super(array)
+    end
   end
   
   def find(number)
